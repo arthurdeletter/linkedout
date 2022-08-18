@@ -1,0 +1,10 @@
+.feed {
+  flex: 0.55;
+  margin: 0 20px;
+}
+
+.feedPosts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

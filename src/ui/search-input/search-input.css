@@ -1,0 +1,25 @@
+.search__input {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 0.5rem;
+  border: 1px solid #f1f1f1;
+  height: fit-content;
+}
+
+.search__input:focus-within {
+  border-color: black;
+}
+
+.search__input > input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 1rem;
+  min-width: 300px;
+}
+
+.search__input > svg {
+  color: #636e72;
+}

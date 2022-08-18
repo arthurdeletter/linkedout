@@ -1,0 +1,57 @@
+.widgets {
+  flex: 0.25;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 15px;
+  padding-bottom: 20px;
+  height: fit-content;
+}
+
+.widgets > h3 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.accountOption {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 20px;
+}
+
+.accountOption:last-of-type {
+  margin-bottom: 0;
+}
+
+.account__info > h4 {
+  font-size: 16px;
+}
+
+.account__info > p {
+  color: gray;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.account__followBtn {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border: 0;
+  margin-top: 10px;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.25s;
+}
+
+.account__followBtn:hover {
+  background-color: lightgray;
+}
+
+.account__followBtn > svg {
+  width: 18px;
+}

@@ -1,0 +1,7 @@
+.app__body {
+  padding: 1rem 0;
+}
+
+.app__body > .container {
+  display: flex;
+}

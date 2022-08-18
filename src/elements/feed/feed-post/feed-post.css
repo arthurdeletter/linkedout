@@ -1,0 +1,35 @@
+.feedPost {
+  background: #fff;
+  border: 1px solid lightgray;
+  padding: 10px;
+  padding-top: 15px;
+  border-radius: 10px;
+}
+
+.post__header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.post__userInfo > h2 {
+  font-size: 14px;
+}
+
+.post__userInfo > p {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.post__body {
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.post__body > p {
+  font-size: 14px;
+}
+
+.post__footer {
+  display: flex;
+  margin-top: 1.5rem;
+}
