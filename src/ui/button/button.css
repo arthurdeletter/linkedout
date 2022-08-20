@@ -1,0 +1,46 @@
+.button {
+    border: 0;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.button > svg {
+    height: 1rem;
+}
+
+.button > span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.button[data-variant="primary"] {
+    background-color: #2977C9;
+    color: white;
+}
+
+.button[data-variant="primary"]:hover {
+    background-color: hsl(211, 66%, 37%);
+    color: white;
+}
+
+.button[data-variant="secondary"] {
+    background-color: transparent;
+    border: 1px solid #2977C9;
+    color: #2977C9;
+}
+
+.button[data-variant="secondary"]:hover {
+    background-color: rgba(41, 119, 201, .2);
+    color: hsl(211, 66%, 27%);
+}
+
+.button[data-variant="tertiary"] {
+    background-color: transparent;
+    color: dimgray;
+}
+
+.button[data-variant="tertiary"]:hover {
+    background-color: whitesmoke;
+    color: black;
+}

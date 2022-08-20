@@ -1,0 +1,22 @@
+.formWrapper {
+    background-color: white;
+    height: calc(100% - 80px);
+}
+
+.formWrapper > .container {
+    display: flex;
+    height: 100%;
+}
+
+.formWrapper .form {
+    flex: .6;
+    margin-top: 3rem;
+}
+
+.formWrapper img {
+    flex: .4;
+    max-height: 500px;
+    object-fit: contain;
+    max-width: 100%;
+    padding-left: 1rem;
+}

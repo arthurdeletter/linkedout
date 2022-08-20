@@ -1,0 +1,24 @@
+.simpleHeader {
+    height: 80px;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    top: 0;
+    position: sticky;
+}
+
+.simpleHeader > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.simpleHeader img {
+    height: 80px;
+    object-fit: contain;
+}
+
+.simpleHeader .simpleHeader__tabs {
+    display: flex;
+    gap: 1rem;
+}
