@@ -14,6 +14,7 @@ export const Form = ({ type, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(selectUser);
+  const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -27,23 +28,27 @@ export const Form = ({ type, title }) => {
   });
 
   useEffect(() => {
-    if (user !== null) {
+    if (user !== null || !loading) {
       navigate("/");
     }
-  }, [navigate, user]);
+  }, [navigate, user, loading]);
 
   const handleLogin = useCallback(
     (e) => {
+      setLoading(true);
       e.preventDefault();
       dispatch(SignInUser(loginData));
+      setLoading(false);
     },
     [loginData, dispatch]
   );
 
   const handleRegister = useCallback(
     (e) => {
+      setLoading(true);
       e.preventDefault();
       dispatch(signUpUser(registerData));
+      setLoading(false);
     },
     [registerData, dispatch]
   );
