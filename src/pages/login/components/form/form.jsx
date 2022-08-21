@@ -28,7 +28,7 @@ export const Form = ({ type, title }) => {
   });
 
   useEffect(() => {
-    if (user !== null || !loading) {
+    if (user !== null && !loading) {
       navigate("/");
     }
   }, [navigate, user, loading]);
