@@ -10,17 +10,14 @@ export const Feed = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    onSnapshot(
-      collection(db, "posts"),
-      (snapshot) => {
-        setPosts(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        );
-      }
-    );
+    onSnapshot(collection(db, "posts"), (snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      );
+    });
   }, [posts]);
 
   return (
@@ -28,11 +25,21 @@ export const Feed = () => {
       <PostFeedMessage postMessage={() => setPosts} />
       <FeedPosts>
         {posts.length === 0 ? (
-          <p>No posts</p>
+          <NoPosts />
         ) : (
-          posts.map((post, index) => <FeedPost key={index} {...post.data} />)
+          posts
+            .sort((a, b) => b.data.timestamp - a.data.timestamp)
+            .map((post, index) => <FeedPost key={index} {...post.data} />)
         )}
       </FeedPosts>
+    </div>
+  );
+};
+
+const NoPosts = () => {
+  return (
+    <div className="noPosts">
+      <p>Loading posts...</p>
     </div>
   );
 };

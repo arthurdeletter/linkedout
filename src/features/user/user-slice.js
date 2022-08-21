@@ -9,9 +9,6 @@ import {
 import {
   register
 } from '../../api/user/user-register';
-import {
-  update
-} from '../../api/user/user-update';
 
 const initialState = {
   user: null,
@@ -28,6 +25,7 @@ const logUserIn = createAsyncThunk(
     const user = await login(loginData);
     // The value we return becomes the `fulfilled` action payload
     return {
+      uid: user.uid,
       username: user.displayName,
       email: user.email,
       picture: user.photoURL,
@@ -39,9 +37,9 @@ const registerUser = createAsyncThunk(
   'user/register',
   async (registerData) => {
     const user = await register(registerData);
-    update(user, registerData.name, register.picture)
     // The value we return becomes the `fulfilled` action payload
     return {
+      uid: user.uid,
       username: user.displayName,
       email: user.email,
       picture: user.photoURL,
@@ -54,6 +52,9 @@ export const UserSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    signin: (state, action) => {
+      state.user = action.payload
+    },
     signout: (state) => {
       state.user = null;
       logout();
@@ -81,6 +82,7 @@ export const UserSlice = createSlice({
 });
 
 export const {
+  signin,
   signout
 } = UserSlice.actions;
 

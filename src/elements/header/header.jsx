@@ -7,9 +7,15 @@ import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import MessageIcon from "@mui/icons-material/Message";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { Container, SearchInput } from "../../ui";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, signout } from "../../features/user/user-slice";
+import { Avatar } from "@mui/material";
 
 export const Header = () => {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
   return (
     <header className="header">
       <Container>
@@ -34,12 +40,16 @@ export const Header = () => {
             <HeaderItem icon={<NotificationsIcon />} text="Notifications" />
             <HeaderItem
               avatar={
-                <img
-                  src="https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/280404262_3846356648922941_2947449676252310593_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=waEzgFDpJeoAX_kklfj&_nc_ht=scontent-bru2-1.xx&oh=00_AT9_sUkdiblw-8pfMeI1SrUiZYji6CDPCVMDk8irrLJ34g&oe=630165EB"
-                  alt="User profile"
-                />
+                <Avatar className="headerItem__avatar" src={user?.picture}>
+                  {user?.username[0].toUpperCase()}
+                </Avatar>
               }
               text="Me"
+            />
+            <HeaderItem
+              icon={<LogoutOutlinedIcon />}
+              text="Log out"
+              onClick={() => dispatch(signout())}
             />
           </div>
         </div>
@@ -48,9 +58,17 @@ export const Header = () => {
   );
 };
 
-const HeaderItem = ({ avatar, icon, text, to, notifications, className }) => {
+const HeaderItem = ({
+  avatar,
+  icon,
+  text,
+  to,
+  notifications,
+  className,
+  onClick,
+}) => {
   return (
-    <div className={`headeritem ${className}`}>
+    <div className={`headeritem ${className ?? ""}`} onClick={onClick}>
       {notifications && (
         <span className="headeritem__notifications">{notifications}</span>
       )}

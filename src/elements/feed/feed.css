@@ -8,3 +8,11 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.feedPosts > .noPosts {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  color: gray;
+}

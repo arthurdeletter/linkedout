@@ -11,7 +11,7 @@ export const FeedPost = ({ name, description, message, photoUrl }) => {
   return (
     <div className="feedPost">
       <div className="post__header">
-        <Avatar />
+        <Avatar src={photoUrl} />
         <div className="post__userInfo">
           <h2>{name}</h2>
           <p>{description}</p>

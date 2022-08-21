@@ -38,6 +38,8 @@
 .sidebar__top > h4 {
   color: grey;
   font-size: 12px;
+  whitespace: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sidebar__stats {

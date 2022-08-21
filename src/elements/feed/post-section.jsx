@@ -9,18 +9,21 @@ import { InputOption } from "./input-options";
 import { db } from "../../firebase";
 import { useState } from "react";
 import { addDoc, serverTimestamp, collection } from "firebase/firestore";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/user/user-slice";
 
 export const PostFeedMessage = ({ postMessage }) => {
+  const user = useSelector(selectUser);
   const [value, setValue] = useState("");
 
   const postOnFeed = async (e) => {
     e.preventDefault();
 
     await addDoc(collection(db, "posts"), {
-      name: "Arthur De Letter",
-      description: "This is a test",
+      name: user?.username,
+      description: user?.email,
       message: value,
-      photoUrl: "",
+      photoUrl: user?.picture,
       timestamp: serverTimestamp(),
     });
 
